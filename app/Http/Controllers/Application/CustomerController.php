@@ -22,6 +22,7 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
+      
         $user = $request->user();
         $currentCompany = $user->currentCompany();
 
@@ -35,7 +36,7 @@ class CustomerController extends Controller
             ->oldest()
             ->paginate()
             ->appends(request()->query());
-
+          //  dd($customers);
         return view('application.customers.index', [
             'customers' => $customers
         ]);
